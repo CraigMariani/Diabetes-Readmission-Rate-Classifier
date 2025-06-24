@@ -1,0 +1,49 @@
+The following queries are designed to compare the readmission rates to the hospitals resources.
+
+readmission_rate_vs_number_inpatient
+Segments patients by how many times they’ve been inpatient before.
+Calculates total patients, how many were readmitted, and the readmission rate per group.
+Helps you spot if patients with more inpatient visits tend to return more.
+
+Higher number_inpatiet = higher readmission rate
+
+Purpose: Segments patients by how many prior inpatient visits they had.
+
+Goal: Determine if previous inpatient frequency correlates with future readmissions.
+
+Observation: There is a clear trend — patients with a higher number of inpatient visits tend to have higher readmission rates.
+
+
+readmission_rate_vs_number_emergency
+Segments patients by how many times they’ve had emergencies before.
+Calculates total patients, how many were readmitted, and the readmission rate per group.
+Helps you spot if patients with more emergencies tend to return more.
+
+There might be a trend by looking at the data file itself but its hard to say at the moment 
+
+Purpose: Analyzes how emergency visits relate to readmission likelihood.
+
+Goal: Identify if frequent ER visits are a predictive factor.
+
+Observation: A trend might exist, but the relationship is less obvious. A more detailed analysis (e.g., visualization or logistic regression) may be needed.
+
+
+readmission_rate_vs_number_lab_procedure
+Buckets number of lab procedures into tables,
+Possible increasing trend with readmission rate and number of lab procedures
+
+Purpose: Buckets number of lab procedures into ranges to assess their relationship with readmission.
+
+Goal: Explore whether more diagnostic effort signals higher risk.
+
+Observation: There appears to be a possible increasing trend — more lab procedures may correlate with higher readmission rates, potentially due to case complexity.
+
+readmission_rate_vs_number_medications
+Buckets number of medications into tables 
+No trend found 
+
+Purpose: Analyzes patients based on how many medications they were prescribed.
+
+Goal: Understand whether polypharmacy is linked to readmission.
+
+Observation: No clear trend observed — the number of medications does not show a strong correlation with readmission rates in this dataset.
