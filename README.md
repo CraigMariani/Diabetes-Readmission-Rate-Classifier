@@ -1,9 +1,11 @@
 # Hospital Readmission Prediction
 
-This project analyzes real-world hospital data to predict readmissions in diabetic patients using machine learning — and presents the findings through a **Power BI dashboard** and a **Streamlit app**.
+This project analyzes real-world hospital data to predict readmissions in diabetic patients using machine learning and UC Irvine's Diabetes dataset from 1999-2008 — and presents the findings through a **Power BI dashboard** and a **Streamlit app**.
 
 It demonstrates full-stack data skills across SQL, ML, visualization, and deployment.
 
+
+data source: https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008
 ---
 
 ## Objectives
@@ -64,8 +66,7 @@ This dashboard summarizes readmission patterns by race, gender, age, admission t
 /models → Trained serialized ML models (.pkl)
 /notebooks → Jupyter notebook (modeling.ipynb) and graphs
 /reports → Model summary & visualizations
-/app → Streamlit app scripts 
-
+/app → frontend Streamlit app ui scripts, backend FastAPI api
 
 ## How to Run
 

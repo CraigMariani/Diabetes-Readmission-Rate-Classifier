@@ -1,0 +1,15 @@
+Run Docker Notes
+Open Docker and Run it 
+
+docker ps : check if Docker is running and see if any Docker Containers are up
+docker-compose up --build : get the image up and running using a docker-compose.yml file
+docker compose down : shut down containers
+docker compose up : start up containers
+
+docker builder prune ; if things are running forever to load run this command
+
+Note this has the directories and files that are being run by docker so we will need to have these be correct
+
+
+check the front end http://localhost:8501
+check the backend http://localhost:8000/docs
