@@ -1,0 +1,26 @@
+{
+  "model": "logistic_regression",
+  "age": 50,
+  "gender": "Male",
+  "admission_type_id": 1,
+  "discharge_disposition_id": 1,
+  "admission_source_id": 1,
+  "num_procedures": 1,
+  "num_medications": 1,
+  "time_in_hospital": "2",
+  "num_lab_procedures": 1,
+  "number_inpatient": 1,
+  "number_emergency": 1,
+  "number_outpatient": 1,
+  "number_diagnoses": 1
+}
+
+
+
+Response: 200
+
+Go to http://127.0.0.1:8000/docs#/default/predict_predict_post to test the payload
+
+
+Run backend locally
+uvicorn api:app --reload

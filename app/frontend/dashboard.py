@@ -2,6 +2,14 @@ import streamlit as st
 import requests
 import pandas as pd
 import matplotlib.pyplot as plt
+import os
+
+
+API_BASE_URL = os.getenv("API_BASE_URL", "http://127.0.0.1:8000")
+
+PREDICT_URL = f"{API_BASE_URL}/predict"
+DIST_URL = f"{API_BASE_URL}/distribution"
+
 
 st.set_page_config(page_title="Hospital Readmission Predictor", layout="wide")
 st.title("Hospital Readmission Risk Predictor")
@@ -91,6 +99,8 @@ if st.button("Predict Readmission Probability"):
         try:
             # ---- POST to model ----
             # response = requests.post("http://localhost:8000/predict", json=payload) # for local
+            # st.write("PAYLOAD BEING SENT:")
+            # st.json(payload)
             response = requests.post("http://backend:8000/predict", json=payload) # for docker
             response.raise_for_status()
             prediction = response.json()["readmission_probability"]

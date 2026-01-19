@@ -66,8 +66,9 @@ df = joblib.load("data/predicted_prob_distribution.pkl")
 
 class InputData(BaseModel):
     model: str
-    # age: str
-    age : int
+    age: str
+    # age: int | str 
+    # age : int
     gender : str
     admission_type_id : int 
     discharge_disposition_id : int 
@@ -81,35 +82,60 @@ class InputData(BaseModel):
     number_outpatient : int
     number_diagnoses : int 
 
-def age_to_bucket(age: int) -> str:
-    if age < 10:
-        return "[0-10)"
-    elif age < 20:
-        return "[10-20)"
-    elif age < 30:
-        return "[20-30)"
-    elif age < 40:
-        return "[30-40)"
-    elif age < 50:
-        return "[40-50)"
-    elif age < 60:
-        return "[50-60)"
-    elif age < 70:
-        return "[60-70)"
-    elif age < 80:
-        return "[70-80)"
-    elif age < 90:
-        return "[80-90)"
-    else:
-        return "[90-100)"
+# def age_to_bucket(age: int) -> str:
+#     if age < 10:
+#         return "[0-10)"
+#     elif age < 20:
+#         return "[10-20)"
+#     elif age < 30:
+#         return "[20-30)"
+#     elif age < 40:
+#         return "[30-40)"
+#     elif age < 50:
+#         return "[40-50)"
+#     elif age < 60:
+#         return "[50-60)"
+#     elif age < 70:
+#         return "[60-70)"
+#     elif age < 80:
+#         return "[70-80)"
+#     elif age < 90:
+#         return "[80-90)"
+#     else:
+#         return "[90-100)"
 
 @app.post("/predict")
 def predict(data: InputData):
-    print('in predict')
-    print('incoming payload')
-    print("As dict:", data.dict())
+
+    AGE_MAP = {
+    "[0-10)": 5,
+    "[10-20)": 15,
+    "[20-30)": 25,
+    "[30-40)": 35,
+    "[40-50)": 45,
+    "[50-60)": 55,
+    "[60-70)": 65,
+    "[70-80)": 75,
+    "[80-90)": 85,
+    "[90-100)": 95
+}
+
+    # print('in predict')
+    # print('incoming payload')
+    # print("As dict:", data.dict())
+
+    # if isinstance(data.age, str):
+
+        # if data.age in AGE_MAP:
+        #     data.age = AGE_MAP[data.age]
+        # else:
+        #     return {"error": f"Invalid age format: {data.age}"}
+
+
+
+
     input_dict = data.dict()
-    input_dict['age'] = age_to_bucket(data.age)
+    # input_dict['age'] = age_to_bucket(data.age)
     input_df = pd.DataFrame([input_dict])[[
         'model',
         'time_in_hospital',
